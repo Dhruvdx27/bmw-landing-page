@@ -125,17 +125,18 @@ const LandingPage = () => {
           ref={buttonRef}
           style={{ x: springX, y: springY }}
           animate={{
-            opacity: visible ? 1 : 0,
-            scale: visible ? [0.95, 1.05, 0.95] : 0.8,
-            boxShadow: visible
-              ? ["0 0 15px #0078D6", "0 0 30px #0078D6", "0 0 15px #0078D6"]
-              : "none",
+            opacity: window.innerWidth < 768 ? 1 : visible ? 1 : 0,
+            scale: visible && window.innerWidth >= 768 ? [0.95, 1.05, 0.95] : 1,
+            boxShadow:
+              visible && window.innerWidth >= 768
+                ? ["0 0 15px #0078D6", "0 0 30px #0078D6", "0 0 15px #0078D6"]
+                : "none",
           }}
           transition={{
             opacity: { duration: 0.4, ease: "easeOut" },
             scale: {
               duration: 0.4,
-              repeat: visible ? Infinity : 0,
+              repeat: visible && window.innerWidth >= 768 ? Infinity : 0,
               repeatType: "mirror",
               ease: "easeInOut",
             },
@@ -146,76 +147,77 @@ const LandingPage = () => {
         >
           Feel <span className="text-red-500">Power</span> →
         </motion.button>
+
       </div>
 
-{/* ======== FLOATING CALL BUTTON (Compact, Ring Animation) ======== */}
-<div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[9999] flex items-center justify-center">
-  {/* Ripple Rings */}
-  <div className="absolute w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#0078D6]/40 animate-ping-slow"></div>
-  <div className="absolute w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#0078D6]/20 animate-ping-slower"></div>
+      {/* ======== FLOATING CALL BUTTON (Compact, Ring Animation) ======== */}
+      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[9999] flex items-center justify-center">
+        {/* Ripple Rings */}
+        <div className="absolute w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#0078D6]/40 animate-ping-slow"></div>
+        <div className="absolute w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#0078D6]/20 animate-ping-slower"></div>
 
-  {/* Tooltip */}
-  <motion.div
-    initial={{ opacity: 0, x: 10, scale: 0.95 }}
-    whileHover={{ opacity: 1, x: 0, scale: 1 }}
-    transition={{ duration: 0.4, ease: "easeOut" }}
-    className="hidden sm:block absolute right-[115%] bg-gradient-to-r from-[#ffffffdd] to-[#e6e6e6cc]
+        {/* Tooltip */}
+        <motion.div
+          initial={{ opacity: 0, x: 10, scale: 0.95 }}
+          whileHover={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="hidden sm:block absolute right-[115%] bg-gradient-to-r from-[#ffffffdd] to-[#e6e6e6cc]
                text-[#0A0F12] text-xs font-semibold tracking-wide
                px-3 py-1.5 rounded-lg shadow-[0_0_10px_rgba(0,120,214,0.35)]
                backdrop-blur-md border border-[#0078D6]/30"
-  >
-    <span className="inline-flex items-center gap-1">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth="2"
-        stroke="#0078D6"
-        className="w-3.5 h-3.5"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M8 12h8m0 0l-3-3m3 3l-3 3"
-        />
-      </svg>
-      Book a Test Drive
-    </span>
-  </motion.div>
+        >
+          <span className="inline-flex items-center gap-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="2"
+              stroke="#0078D6"
+              className="w-3.5 h-3.5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M8 12h8m0 0l-3-3m3 3l-3 3"
+              />
+            </svg>
+            Book a Test Drive
+          </span>
+        </motion.div>
 
-  {/* Call Button */}
-  <motion.a
-    href="tel:+911800123456"
-    whileHover={{ scale: 1.1 }}
-    whileTap={{ scale: 0.9 }}
-    animate={{
-      scale: [1, 1.08, 1],
-      boxShadow: [
-        "0 0 10px #0078D6aa",
-        "0 0 25px #0078D6ff",
-        "0 0 10px #0078D6aa",
-      ],
-    }}
-    transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-    className="relative w-9 h-9 sm:w-11 sm:h-11 bg-[#0078D6] rounded-full flex items-center justify-center
+        {/* Call Button */}
+        <motion.a
+          href="tel:+911800123456"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          animate={{
+            scale: [1, 1.08, 1],
+            boxShadow: [
+              "0 0 10px #0078D6aa",
+              "0 0 25px #0078D6ff",
+              "0 0 10px #0078D6aa",
+            ],
+          }}
+          transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+          className="relative w-9 h-9 sm:w-11 sm:h-11 bg-[#0078D6] rounded-full flex items-center justify-center
                shadow-[0_0_25px_#0078D6aa] cursor-pointer hover:shadow-[0_0_40px_#0078D6ff] transition-all"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth="2"
-      stroke="white"
-      className="w-5 h-5"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M2 5.5C2 4.11929 3.11929 3 4.5 3H6a1 1 0 011 .883l.25 2A1 1 0 016.25 7h-.5A1.75 1.75 0 004 8.75v.5a11 11 0 0011 11h.5A1.75 1.75 0 0017.25 18v-.5a1 1 0 01.883-.992l2-.25A1 1 0 0121 17v1.5A2.5 2.5 0 0118.5 21h-1A15.5 15.5 0 012 5.5z"
-      />
-    </svg>
-  </motion.a>
-</div>
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="2"
+            stroke="white"
+            className="w-5 h-5"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M2 5.5C2 4.11929 3.11929 3 4.5 3H6a1 1 0 011 .883l.25 2A1 1 0 016.25 7h-.5A1.75 1.75 0 004 8.75v.5a11 11 0 0011 11h.5A1.75 1.75 0 0017.25 18v-.5a1 1 0 01.883-.992l2-.25A1 1 0 0121 17v1.5A2.5 2.5 0 0118.5 21h-1A15.5 15.5 0 012 5.5z"
+            />
+          </svg>
+        </motion.a>
+      </div>
 
 
 
