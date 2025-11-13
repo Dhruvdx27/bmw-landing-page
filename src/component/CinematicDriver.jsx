@@ -38,11 +38,11 @@ const CinematicDivider = () => {
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-        className="text-gray-200 text-center text-sm sm:text-lg mt-6 max-w-[700px] leading-relaxed"
+        transition={{ duration: 1, delay: 0.2, ease: "easeInOut" }}
+        className="text-white text-center text-sm sm:text-lg mt-6 max-w-[700px] leading-relaxed"
       >
         Every revolution tells a story. Every detail defines performance.  
-        The road ahead isn’t just driven — it’s designed.
+        The road ahead isn't just driven — it's designed.
       </motion.p>
 
       {/* Subtle Gradient Line */}

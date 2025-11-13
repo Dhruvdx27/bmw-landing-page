@@ -75,8 +75,13 @@ const BMWCategories = () => {
             loop
             muted
             playsInline
-            className="absolute top-0 left-0 w-full h-full object-cover opacity-0 group-hover:opacity-70 transition-opacity duration-700"
+            preload="auto"
+            onTouchStart={(e) => e.target.play()}
+            className="absolute top-0 left-0 w-full h-full object-cover 
+             opacity-70 sm:opacity-0 sm:group-hover:opacity-70 
+             transition-opacity duration-700"
           />
+
 
           {/* Dark Layer for Contrast */}
           <div className=" absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-70 transition-all duration-700"></div>
