@@ -1,7 +1,7 @@
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { User, PhoneCall } from "lucide-react";
-import EngineTransitionSection from "./EngineTransitionSection"; // ✅ Adjust path if needed
+import EngineTransitionSection from "./EngineTransitionSection"; 
 
 const LandingPage = () => {
   const videoRef = useRef(null);
@@ -70,7 +70,7 @@ const LandingPage = () => {
   return (
     <div className="w-full bg-gradient-to-b from-black via-[#0A0F12] to-black text-white font-[Poppins] flex flex-col items-center justify-start relative overflow-hidden">
       {/* ============ NAVBAR ============ */}
-      <motion.nav
+      {/* <motion.nav
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -101,7 +101,7 @@ const LandingPage = () => {
         >
           <User className="text-white w-5 h-5" />
         </motion.div>
-      </motion.nav>
+      </motion.nav> */}
 
       {/* ============ HERO VIDEO ============ */}
       <div

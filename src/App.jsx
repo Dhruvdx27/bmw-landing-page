@@ -7,6 +7,8 @@ import LatestLaunch from "./component/LatestLaunch";
 import BMWCategories from "./component/BmwCategories";
 import Footer from "./component/Footers";
 import CinematicDivider from "./component/CinematicDriver";
+import NavBar from "./component/NavBar";
+
 
 
 function App() {
@@ -36,6 +38,7 @@ function App() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
           >
+            <NavBar />
             <LandingPage />
             <LatestLaunch />
             <BMWCategories />
