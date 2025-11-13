@@ -91,7 +91,11 @@ const BMWCategories = () => {
             initial={{ opacity: 0, y: 40 }}
             whileHover={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, ease: "easeOut", delay: 0.2 }}
-            className="w-full absolute bottom-10 left-1/2 -translate-x-1/2 text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+            className="
+    w-full absolute bottom-10 left-1/2 -translate-x-1/2 text-white text-center 
+    opacity-100 sm:opacity-0 sm:group-hover:opacity-100 
+    transition-opacity duration-700
+  "
           >
             <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-[#0078D6] drop-shadow-lg">
               {cat.model}
@@ -102,6 +106,7 @@ const BMWCategories = () => {
               ))}
             </ul>
           </motion.div>
+
         </motion.div>
       ))}
     </section>
